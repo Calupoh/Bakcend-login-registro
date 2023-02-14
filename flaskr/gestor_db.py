@@ -22,6 +22,8 @@ def close_db():
 
 
 def init_db():
+    # Inicia la base en blanco y agrega la clave "admin", 
+    # para registrar primer usuario
     db = get_db()
 
     with current_app.open_resource('esquema.sql') as f:
@@ -30,6 +32,7 @@ def init_db():
 
 
 def add_clave(clave):
+    # Aqui de sergregaran las claves que mas tarde se usaran para registrarse
     db = get_db()
     db.execute('INSERT INTO invitacion VALUES (?)', clave)
 
